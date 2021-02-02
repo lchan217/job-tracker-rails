@@ -1,0 +1,8 @@
+<div>
+    <%= form_with model: @job do |f| %>
+        <%= f.label "Upload CSV" %>
+        <%= f.file_field :file %>
+
+        <%= f.submit "Submit" %>
+    <% end %>
+</div>

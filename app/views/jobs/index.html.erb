@@ -1,0 +1,8 @@
+<div>
+    <h1>Jobs Index </h1>
+    <ul>
+        <% @jobs.each do |job| %> 
+            <li><%= job.title %></li>
+        <% end %>
+    </ul>
+</div>
