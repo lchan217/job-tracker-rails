@@ -1,25 +1,38 @@
 <div class="source-index">
     <h1>Job Sources</h1>
+    <i>Click on a card to see jobs from that source</i>
 
-    <div class="row">
-        <% @sources.each do |source| %>
+    <div class="row mt-3">
+        <% sources.each do |source| %>
             <% if source.logo_file %>
                 <div class="col-sm-4">
-                    <div class="card source-card mt-2 mb-2">
-                        <div class="source-rating">
-                            <%= source.rating %>
-                        </div>
-                        
-                        <div class="row mt-4">
-                            <div class='col-4'>
-                                <%= image_tag("#{source.logo_file}",  class: "source-logo", alt: "source logo") %>
+                    <%= link_to source_jobs_path(source) do %>
+                        <div class="card source-card mt-2 mb-2">
+                            <div class="source-rating">
+                                <%= source.rating %>
                             </div>
+                            
+                            <div class="row mt-4">
+                                <div class='col-4'>
+                                    <%= image_tag("#{source.logo_file}",  class: "source-logo", alt: "source logo") %>
+                                </div>
 
-                            <div class="col-8 source-description">
-                                <%= source.description %>
+                                <div class="col-8 source-description">
+                                    <%= source.description %>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    <% end %>
+                </div>
+            <% else %>
+                <div class="col-sm-4">
+                    <%= link_to source_jobs_path(source) do %>
+                        <div class="card source-card mt-2 mb-2">
+                            <div class="col-8 source-description">
+                                <%= source.name %>
+                            </div>
+                        </div>
+                    <% end %> 
                 </div>
             <% end %>
         <% end %>
