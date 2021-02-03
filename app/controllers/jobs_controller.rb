@@ -1,5 +1,9 @@
 class JobsController < ApplicationController
-    def show
+    def index
+        source = Source.find(params[:source_id])
+        jobs = source.jobs
+
+        render :index, locals: { source: source, jobs: jobs}
     end
     
     def new
@@ -9,7 +13,7 @@ class JobsController < ApplicationController
     def create
         Job.import(params[:job][:file])
         flash[:notice] = "Jobs uploaded successfully"
-        redirect_to jobs_path
+        redirect_to sources_path
     end
 
     private
