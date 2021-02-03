@@ -1,0 +1,27 @@
+<div class="source-index">
+    <h1>Job Sources</h1>
+
+    <div class="row">
+        <% @sources.each do |source| %>
+            <% if source.logo_file %>
+                <div class="col-sm-4">
+                    <div class="card source-card mt-2 mb-2">
+                        <div class="source-rating">
+                            <%= source.rating %>
+                        </div>
+                        
+                        <div class="row mt-4">
+                            <div class='col-4'>
+                                <%= image_tag("#{source.logo_file}",  class: "source-logo", alt: "source logo") %>
+                            </div>
+
+                            <div class="col-8">
+                                <%= source.description %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <% end %>
+        <% end %>
+    </div>
+</div>

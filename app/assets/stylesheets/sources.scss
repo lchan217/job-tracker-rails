@@ -1,0 +1,21 @@
+.source-index {
+  .source-card {
+    padding: 1.5em;
+    height: 19em;
+    cursor: pointer;
+
+    .source-logo {
+      height: 5em;
+      width: 5em;
+    }
+
+    .source-rating {
+      text-align: right;
+      color: RGB(117, 202, 119);
+    }
+
+    .more-jobs-button {
+      width: 10em;
+    }
+  }
+}
