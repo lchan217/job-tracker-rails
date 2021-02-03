@@ -4,7 +4,7 @@ class CreateJobs < ActiveRecord::Migration[6.1]
       t.string :title
       t.string :company_name
       t.text :url
-      t.string :source
+      t.integer :source_id
       t.timestamps
     end
   end
