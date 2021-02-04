@@ -5,6 +5,17 @@ class Job < ApplicationRecord
 
     validates :url, uniqueness: true
 
+    def self.import(file)
+        CSV.foreach(file.path, headers: true) do |row|
+            job = Job.new
+            job.title = row[1]
+            job.company_name = row[2]
+            job.url = row[3]
+            job.find_source
+            job.save
+        end
+    end
+
     def find_source
         if !url
             source = Source.find_by(name: "Source Unknown")
