@@ -16,9 +16,10 @@
                     <th scope="row"><%= job.id %></th>
                     <td><%= job.company_name %></td>
                     <td><%= job.title %></td>
-                    <td><%= job.url %></td>
+                    <td class="job-url"><%= link_to job.url, job.url %></td>
                 </tr>
             <% end %>
         </tbody>
     </table>
+    <%= will_paginate jobs %> 
 </div>

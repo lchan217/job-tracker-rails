@@ -1,0 +1,14 @@
+.jobs-index {
+  .job-url {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 30em;
+  }
+}
+
+.jobs-form {
+  .alert {
+    display: inline-block;
+  }
+}

@@ -1,6 +1,13 @@
 <div class="source-index">
     <h1>Job Sources</h1>
     <i>Click on a card to see jobs from that source</i>
+    <br>
+    <br>
+    <% if flash[:notice].present? %>
+        <div class="alert alert-success" role="alert">
+            <%= flash[:notice] %>
+        </div>
+    <% end %>
 
     <div class="row mt-3">
         <% sources.each do |source| %>

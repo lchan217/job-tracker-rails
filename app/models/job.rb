@@ -3,16 +3,7 @@ class Job < ApplicationRecord
 
     belongs_to :source
 
-    def self.import(file)
-        CSV.foreach(file.path, headers: true) do |row|
-            job = Job.new
-            job.title = row[1]
-            job.company_name = row[2]
-            job.url = row[3]
-            job.find_source
-            job.save
-        end
-    end
+    validates :url, uniqueness: true
 
     def find_source
         if !url
@@ -27,7 +18,7 @@ class Job < ApplicationRecord
                 source = Source.find_by(name: "Source Unknown")
             end
         end
-        update!(source_id: source.id)
+        update(source_id: source.id)
     end
 
     private
