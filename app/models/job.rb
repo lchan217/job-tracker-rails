@@ -23,7 +23,7 @@ class Job < ApplicationRecord
 
             if source = Source.all.find { |source| url.match?(source.root_domain.downcase) if source.root_domain.present? } || Source.all.find { |source| url.match?(source.name.downcase)}
                 
-            elsif Source.all.find { |source| url.match?(Regexp.union(["careers", "jobs", company_name.downcase.gsub(/\s+/, "")]))}
+            elsif Source.all.find { |source| url.match?(Regexp.union(["careers", "jobs", clean_string(company_name)]))}
                 source = Source.find_by(name: "Company Website")
             else
                 source = Source.find_by(name: "Source Unknown")

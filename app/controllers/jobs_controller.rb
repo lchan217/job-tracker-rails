@@ -1,7 +1,7 @@
 class JobsController < ApplicationController
     def index
         source = Source.find(params[:source_id])
-        jobs = source.jobs
+        jobs = source.jobs.paginate(page: params[:page], per_page: 20)
 
         render :index, locals: { source: source, jobs: jobs}
     end
