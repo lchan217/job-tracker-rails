@@ -21,5 +21,7 @@
             <% end %>
         </tbody>
     </table>
-    <%= will_paginate jobs %> 
+    <% if jobs.any? %>
+        <%= will_paginate jobs %> 
+    <% end %>
 </div>
