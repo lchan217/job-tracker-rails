@@ -22,6 +22,8 @@
         </tbody>
     </table>
     <% if jobs.any? %>
-        <%= will_paginate jobs %> 
+        <%= will_paginate jobs %>
+    <% else %>
+        No jobs uploaded at this time.
     <% end %>
 </div>

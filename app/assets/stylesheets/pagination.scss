@@ -1,0 +1,9 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+
+  a,
+  .current {
+    margin: 0px 0.5em;
+  }
+}
