@@ -4,6 +4,8 @@ Rails.application.routes.draw do
   end
 
   resources :jobs, only: [:new, :create]
+  get '/sources/subtotal', to: 'sources#subtotal'
+
 
   root 'sources#index'
 end

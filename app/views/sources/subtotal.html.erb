@@ -1,0 +1,12 @@
+<div class="sources-subtotal">
+    <h1>Sources Subtotal</h1>
+    <% if sources.any? %>
+        <ol>
+            <% sources.each do |source| %>
+                <li><%= "#{source[0]} - #{source[1]}" %> </li>
+            <% end %>
+        </ol>
+    <% else %>
+        No jobs uploaded at this time.
+    <% end %>
+</div>
