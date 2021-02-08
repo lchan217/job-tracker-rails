@@ -10,7 +10,7 @@
     <% end %>
 
     <div class="row mt-3">
-        <% sources.each do |source| %>
+        <% sources.sort_by(&:name).each do |source| %>
             <% if source.logo_file %>
                 <div class="col-sm-4">
                     <%= link_to source_jobs_path(source) do %>
@@ -25,6 +25,8 @@
                                 </div>
 
                                 <div class="col-8 source-description">
+                                    <b><%= source.name %></b>
+                                    <br>
                                     <%= source.description %>
                                 </div>
                             </div>
